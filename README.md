@@ -8,6 +8,7 @@ Instructions on how the script works:
 5. The Q5.Tidy.txt file will be saved in the same location as where the run_analysis file can be found.
 
 Notes on the analysis:
+
 1. The requirement is to extract only the measurements on the mean and standard deviations. Only the accelerations and 
    the gyroscope were measured using the phone, all other variables are calculated or derived. Therefore, I extracted the
    accelerations (body + gravity) and gyro measurements on the time domain only. 
