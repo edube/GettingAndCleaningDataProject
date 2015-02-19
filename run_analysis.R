@@ -11,9 +11,11 @@ run_analysis <-function(df) {
         ##1. Combine the x_train and x_test files add appropriate columns
         
         ##Ensure i am in the proper working directory where data is located
-        WorkingDirectory<-"d:/my documents/R Program/Getting and Cleaning Data/Assignment/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset"
+        WD<-getwd()
+        subDirectory<-"/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset"
+        WorkingDirectory <- paste(WD,subDirectory,sep="")  
         setwd(WorkingDirectory)
-        ##setwd(paste(getwd(),"/train"))
+
         
         ##1a. Read x_train, y_train, subject_train
         setwd(paste(getwd(),"/train",sep=""))
@@ -94,8 +96,9 @@ run_analysis <-function(df) {
  
         Q5.Tidy.df<- ddply(x_train_test_sub.df,c("Subject","Activity_Name"), summarise, tBodyAccmeanX=mean(tBodyAccmeanX),tBodyAccmeanY=mean(tBodyAccmeanY),tBodyAccmeanZ=mean(tBodyAccmeanZ),tBodyAccstdX=mean(tBodyAccstdX),tBodyAccstdY=mean(tBodyAccstdY),tBodyAccstdZ=mean(tBodyAccstdZ),tGravityAccmeanX=mean(tGravityAccmeanX),tGravityAccmeanY=mean(tGravityAccmeanY),tGravityAccmeanZ=mean(tGravityAccmeanZ),tGravityAccstdX=mean(tGravityAccstdX),tGravityAccstdY=mean(tGravityAccstdY),tGravityAccstdZ=mean(tGravityAccstdZ),tBodyGyroMagmean=mean(tBodyGyroMagmean),tBodyGyroMagstd=mean(tBodyGyroMagstd))
         
-        ##5a. write to a text file
- 
+        ##5a. write to a text file in the working directory where run_Analysis.R can be found.
+        setwd("../")
+        setwd("../")
         write.table(Q5.Tidy.df, "Q5_Tidy.txt",row.names=FALSE)
  run_analysis <- x_train_test_sub.df
  
